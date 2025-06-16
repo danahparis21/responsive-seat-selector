@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sugarland Seat Selector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Sugarland Theater Seat Booking</h1>
+    <div class="screen">Screen</div>
+
+    
+    <div class="seat-container">
+        <!-- TOP ROW -->
+        <div class="seat-row">
+          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="10" data-rows="4"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+        </div>
+      
+        <!-- MIDDLE ROW -->
+        <div class="seat-row">
+          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="10" data-rows="4"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+        </div>
+      
+        <!-- BOTTOM ROW -->
+        <div class="seat-row">
+          <div class="seat-subblock" data-cols="4" data-rows="7"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="10" data-rows="7"></div>
+          <div class="gap"></div>
+          <div class="seat-subblock" data-cols="4" data-rows="7"></div>
+        </div>
+      </div>
+      
+  
+
+    <div class="legend">
+      <span class="seat available"></span> Available
+      <span class="seat selected"></span> Selected
+      <span class="seat occupied"></span> Occupied
+    </div>
+
+    <div id="selected-seats">
+      <strong>Selected Seats:</strong> <span id="seat-list">None</span>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
