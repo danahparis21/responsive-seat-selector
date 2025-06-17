@@ -5,52 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sugarland Seat Selector</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <main class="container">
     <h1>Sugarland Theater Seat Booking</h1>
     <div class="screen">Screen</div>
-
-    
-    <div class="seat-container">
-        <!-- TOP ROW -->
-        <div class="seat-row">
-          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="10" data-rows="4"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
-        </div>
-      
-        <!-- MIDDLE ROW -->
-        <div class="seat-row">
-          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="10" data-rows="4"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="4" data-rows="4"></div>
-        </div>
-      
-        <!-- BOTTOM ROW -->
-        <div class="seat-row">
-          <div class="seat-subblock" data-cols="4" data-rows="7"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="10" data-rows="7"></div>
-          <div class="gap"></div>
-          <div class="seat-subblock" data-cols="4" data-rows="7"></div>
-        </div>
-      </div>
-      
-  
-
     <div class="legend">
       <span class="seat available"></span> Available
       <span class="seat selected"></span> Selected
       <span class="seat occupied"></span> Occupied
     </div>
 
+    <div class="seat-scroll-wrapper">
+      <div class="seat-container">
+          <!-- TOP ROW -->
+          <div class="seat-row">
+            <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="10" data-rows="4"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+          </div>
+        
+          <!-- MIDDLE ROW -->
+          <div class="seat-row">
+            <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="10" data-rows="4"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="4" data-rows="4"></div>
+          </div>
+        
+          <!-- BOTTOM ROW -->
+          <div class="seat-row">
+            <div class="seat-subblock" data-cols="4" data-rows="7"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="10" data-rows="7"></div>
+            <div class="gap"></div>
+            <div class="seat-subblock" data-cols="4" data-rows="7"></div>
+          </div>
+        </div>
+    </div>
+  
+
+    
+
     <div id="selected-seats">
       <strong>Selected Seats:</strong> <span id="seat-list">None</span>
+    </div>
+    <!-- Confirm Modal -->
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <h2>Confirm Your Seats</h2>
+      <p id="confirm-text">You have selected 0 seats: </p>
+      <div class="modal-buttons">
+        <button id="cancel-btn">Cancel</button>
+        <button id="confirm-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Selection Button -->
+  <div class="confirm-wrapper">
+    <button id="show-confirm">Confirm Selection</button>
+  </div>
+  <div id="toast">Please select at least one seat.</div>
+
     </div>
   </main>
 
