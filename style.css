@@ -51,7 +51,11 @@ body {
   -webkit-text-fill-color: transparent;
   animation: sparkle 10s linear infinite;
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+   /* Add a transition for font-size and transform for smooth scaling */
+   transition: font-size 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+
+   /* Initial large size - JavaScript will modify this */
+   font-size: 2.8rem; /* Or whatever your desired initial large size is */
 }
 
 /* 💕 Hover effect: glow & bounce */
@@ -139,7 +143,41 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
 }
+
+.zoomable-wrapper {
+  overflow: auto;
+  touch-action: pinch-zoom;
+  -ms-touch-action: pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+
+  /* Allow zooming */
+  user-scalable: yes;
+  overscroll-behavior: contain;
+  padding: 1rem;
+}
+
+/* Enable pinch zooming on mobile browsers */
+@media (max-width: 768px) {
+  .zoomable-wrapper {
+    zoom: 1;
+    transform-origin: 0 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .seat-container {
+    touch-action: pinch-zoom;
+    transform-origin: center center;
+  }
+}
+
 
 /* Scrollable wrapper */
 .seat-scroll-wrapper {
@@ -341,4 +379,41 @@ button#cancel-btn:hover {
 
 .legend .seat.selected {
   background-color: e9bbd7 !important;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  body {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .seat {
+    width: 34px;
+    height: 34px;
+  }
+
+  .seat-row {
+    gap: 18px;
+  }
+
+  .screen {
+    transform: scaleX(1.05);
+    height: 25px;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
 }
