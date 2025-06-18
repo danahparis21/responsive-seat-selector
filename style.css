@@ -150,11 +150,13 @@ body {
   }
 }
 
-.zoomable-wrapper {
+.zoom-wrapper {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   touch-action: pinch-zoom;
+  -webkit-overflow-scrolling: touch;
   padding: 1rem;
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 html, body {
@@ -450,4 +452,14 @@ button#cancel-btn:hover {
     overflow-x: hidden;
   }
   
+}
+@media (max-width: 600px) {
+  .seat-container {
+    transform: scale(0.9);
+    transform-origin: center top;
+  }
+  .container h1 {
+    font-size: 1.2rem;
+  }
+
 }
