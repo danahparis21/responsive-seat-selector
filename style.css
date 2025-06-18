@@ -106,7 +106,6 @@ body {
 .legend .seat {
   pointer-events: none;
 }
-
 @media (max-width: 1200px) {
   .seat-map {
     grid-template-columns: repeat(5, 1fr);
@@ -146,53 +145,9 @@ body {
   }
 
   .container h1 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 }
-
-/* This is the primary element for pinch-to-zoom behavior */
-.zoomable-wrapper {
-  overflow: auto; /* Important for scrollable content inside zoom */
-  -webkit-overflow-scrolling: touch; /* For smoother iOS scrolling */
-  touch-action: pinch-zoom; /* Enable native pinch-zoom here */
-  /* You might also consider setting a min-width/height if the content is very small initially */
-  min-width: 100%; /* Ensure it takes full width initially */
-  min-height: 200px; /* Example: give it some height to be zoomable */
-  /* If you want to dynamically control zoom with JS, you'd use transform: scale() here */
-}
-
-
-
-
-/* Enable pinch zooming on mobile browsers */
-@media (max-width: 768px) {
-  .zoomable-wrapper {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    touch-action: auto;
-    padding: 1rem;
-  }
-  
-  html, body {
-    touch-action: auto;
-    -ms-touch-action: auto;
-  }
-
-  .seat-container {
-    transform: scale(0.9);
-  }
-  
-
-  .seat-container {
-    touch-action: pinch-zoom;
-    transform-origin: center center;
-  }
-
-  .container h1 {
-    font-size: 1.2rem;
-  }
-}
-
 
 /* Scrollable wrapper */
 .seat-scroll-wrapper {
@@ -233,38 +188,24 @@ body {
 }
 
 /* Responsive on smaller screens */
-/* Consider these media queries carefully */
 @media (max-width: 768px) {
-  /* This scale can make it harder to naturally pinch zoom */
-  /* .seat-container {
+  .seat-container {
     transform: scale(0.9);
-    transform-origin: center center;
-  } */
-
-  /* Make sure your h1 scaling logic still makes sense */
-  .container h1 {
-    font-size: 1.2rem;
+    transform-origin: top center;
   }
 }
 
-
-
 @media (max-width: 480px) {
-  /* .seat-container {
+  .seat-container {
     transform: scale(0.8);
     transform-origin: top center;
-  } */
+  }
+
   .seat {
     width: 30px;
     height: 30px;
   }
-
-
-  .container h1 {
-    font-size: 1.2rem;
-  }
 }
-
 .seat {
   width: 35px;
   height: 35px;
@@ -410,48 +351,12 @@ button#cancel-btn:hover {
   background-color: e9bbd7 !important;
 }
 
-@media (max-width: 1024px) {
-  .container {
-    padding: 1.5rem;
-  }
-
-  .container h1 {
-    font-size: 2.2rem;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  body {
-    padding: 1rem;
-    font-size: 1rem;
-  }
-
-  .seat {
-    width: 34px;
-    height: 34px;
-  }
-
-  .seat-row {
-    gap: 18px;
-  }
-
-  .screen {
-    transform: scaleX(1.05);
-    height: 25px;
-  }
-
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-}
 @media (max-width: 600px) {
   .seat-container {
     transform: scale(0.9);
     transform-origin: center top;
   }
-  .container h1 {
+ .container h1 {
     font-size: 1.2rem;
   }
 
