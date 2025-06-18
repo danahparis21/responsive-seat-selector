@@ -180,3 +180,34 @@ function showToast(message) {
   }, 3000); 
 }
 
+let scale = 1;
+const zoomwrapper = document.getElementById('zoomable-wrapper');
+const container = document.getElementById('seat-container');
+
+let startDistance = null;
+
+zoomwrapper.addEventListener('touchstart', function (e) {
+  if (e.touches.length === 2) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    startDistance = Math.hypot(dx, dy);
+  }
+}, { passive: false });
+
+zoomwrapper.addEventListener('touchmove', function (e) {
+  if (e.touches.length === 2 && startDistance !== null) {
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    const currentDistance = Math.hypot(dx, dy);
+    const zoomFactor = currentDistance / startDistance;
+
+    scale = Math.min(Math.max(zoomFactor, 0.5), 2); // limit between 0.5 and 2
+    container.style.transform = `scale(${scale})`;
+  }
+}, { passive: false });
+
+zoomwrapper.addEventListener('touchend', function (e) {
+  if (e.touches.length < 2) {
+    startDistance = null;
+  }
+});

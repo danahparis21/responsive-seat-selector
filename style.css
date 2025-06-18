@@ -9,6 +9,7 @@ body {
   color: #fff;
   padding: 2rem;
   min-height: 100vh;
+  touch-action: manipulation;
 }
 
 @keyframes sparkle {
@@ -51,15 +52,16 @@ body {
   -webkit-text-fill-color: transparent;
   animation: sparkle 10s linear infinite;
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
-   /* Add a transition for font-size and transform for smooth scaling */
-   transition: font-size 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  /* Add a transition for font-size and transform for smooth scaling */
+  transition: font-size 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
 
-   /* Initial large size - JavaScript will modify this */
-   font-size: 2.8rem; /* Or whatever your desired initial large size is */
+  /* Initial large size - JavaScript will modify this */
+  font-size: 2.8rem; /* Or whatever your desired initial large size is */
 }
 
 /* 💕 Hover effect: glow & bounce */
-.container h1:hover {
+.container h1:hover,
+.container h1:active {
   transform: scale(1.05);
   text-shadow: 0 0 12px rgba(255, 182, 193, 0.8),
     0 0 18px rgba(255, 105, 180, 0.6);
@@ -82,21 +84,6 @@ body {
   transform: scaleX(1.1); /* Slight horizontal stretch */
 }
 
-.seat {
-  width: 35px;
-  height: 35px;
-  border-radius: 6px;
-  background-color: #444;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.seat.selected {
-  background-color: green;
-}
-.seat.occupied {
-  background-color: red;
-  cursor: not-allowed;
-}
 .legend {
   margin: 20px 0;
   display: flex;
@@ -106,6 +93,7 @@ body {
 .legend .seat {
   pointer-events: none;
 }
+
 @media (max-width: 1200px) {
   .seat-map {
     grid-template-columns: repeat(5, 1fr);
@@ -136,17 +124,6 @@ body {
 
 .gap {
   height: 15px;
-}
-
-@media (max-width: 600px) {
-  .seat-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .container h1 {
-    font-size: 1.8rem;
-  }
 }
 
 /* Scrollable wrapper */
@@ -187,6 +164,15 @@ body {
   touch-action: manipulation;
 }
 
+/* 🔍 Zoomable wrapper */
+.zoomable-wrapper {
+  overflow: auto;
+  touch-action: none; /* disables browser gestures */
+  max-width: 100%;
+  max-height: 100vh;
+  padding: 1rem;
+}
+
 /* Responsive on smaller screens */
 @media (max-width: 768px) {
   .seat-container {
@@ -205,7 +191,12 @@ body {
     width: 30px;
     height: 30px;
   }
+
+  .container h1 {
+    font-size: 1.6rem;
+  }
 }
+
 .seat {
   width: 35px;
   height: 35px;
@@ -351,13 +342,23 @@ button#cancel-btn:hover {
   background-color: e9bbd7 !important;
 }
 
+@media (max-width: 480px) {
+  .seat-container {
+    transform: scale(0.9);
+  }
+
+  /* .seat {
+    width: 28px;
+    height: 28px;
+  } */
+}
+
 @media (max-width: 600px) {
   .seat-container {
     transform: scale(0.9);
     transform-origin: center top;
   }
- .container h1 {
+  .container h1 {
     font-size: 1.2rem;
   }
-
 }
