@@ -1,3 +1,4 @@
+/* 🌟 Global Reset & Body */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,59 +13,33 @@ body {
   touch-action: manipulation;
 }
 
+/* ✨ Sparkle Animation */
 @keyframes sparkle {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
-@keyframes sparkle {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
+/* 🖋️ Title */
 .container h1 {
   font-family: "Pacifico", cursive;
   font-size: 2.8rem;
-  color: #fcd6e5;
   margin-bottom: 1rem;
   display: inline-block;
-  position: relative;
-
-  /* Sparkly shimmer */
-  background: linear-gradient(
-    120deg,
-    #fcd6e5,
-    #fff0f5,
-    #fcd6e5,
-    #fff0f5,
-    #fcd6e5
-  );
+  background: linear-gradient(120deg, #fcd6e5, #fff0f5, #fcd6e5);
   background-size: 400% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: sparkle 10s linear infinite;
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
-  /* Add a transition for font-size and transform for smooth scaling */
   transition: font-size 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-
-  /* Initial large size - JavaScript will modify this */
-  font-size: 2.8rem; /* Or whatever your desired initial large size is */
 }
 
-/* 💕 Hover effect: glow & bounce */
+
 .container h1:hover,
 .container h1:active {
   transform: scale(1.05);
   text-shadow: 0 0 12px rgba(255, 182, 193, 0.8),
-    0 0 18px rgba(255, 105, 180, 0.6);
+               0 0 18px rgba(255, 105, 180, 0.6);
 }
 
 .container {
@@ -84,6 +59,55 @@ body {
   transform: scaleX(1.1); /* Slight horizontal stretch */
 }
 
+/* 🪑 Seat Layout */
+.seat-container {
+  min-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  touch-action: manipulation;
+}
+.seat-row {
+  display: flex;
+  gap: 25px;
+}
+.seat-subblock {
+  display: grid;
+  gap: 5px;
+}
+.gap {
+  height: 15px;
+}
+.seat {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  background-color: #c1476f;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+  text-align: center;
+  touch-action: manipulation;
+}
+.seat.selected {
+  background-color: #e9bbd7;
+  color: #3b1e3d;
+}
+.seat.occupied {
+  background-color: #3b1e3d;
+  cursor: not-allowed;
+}
+.seat-placeholder {
+  visibility: hidden;
+}
+
+/* 📋 Legend */
 .legend {
   margin: 20px 0;
   display: flex;
@@ -93,47 +117,11 @@ body {
 .legend .seat {
   pointer-events: none;
 }
-
-@media (max-width: 1200px) {
-  .seat-map {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-  }
-  .seat {
-    width: 40px;
-    height: 40px;
-  }
+.legend .seat.selected {
+  background-color: #e9bbd7 !important;
 }
 
-/* 🎯 iPad-specific adjustment: height gets smaller */
-@media (max-width: 900px) and (min-height: 1000px) {
-  .screen {
-    height: 20px;
-  }
-}
-
-.seat-container {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
-}
-
-.seat-row {
-  display: flex;
-  gap: 25px;
-}
-
-.seat-subblock {
-  display: grid;
-  gap: 5px;
-}
-
-.gap {
-  height: 15px;
-}
-
-/* Scrollable wrapper */
+/* 🔄 Scroll & Zoom Container */
 .seat-scroll-wrapper {
   overflow-x: auto;
   max-width: 100%;
@@ -142,97 +130,45 @@ body {
   padding-bottom: 1rem;
 }
 
-.seat-container {
-  min-width: 750px;
-  touch-action: manipulation;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
+/* 📱 Responsive Design */
+@media (max-width: 1200px) {
+  .seat {
+    width: 40px;
+    height: 40px;
+  }
 }
-
-.seat-row {
-  display: flex;
-  gap: 25px;
+@media (max-width: 900px) and (min-height: 1000px) {
+  .screen {
+    height: 20px;
+  }
 }
-
-.seat-subblock {
-  display: grid;
-  gap: 5px;
-}
-
-.seat {
-  width: 35px;
-  height: 35px;
-  border-radius: 6px;
-  background-color: #fef6f653;
-  cursor: pointer;
-  transition: 0.3s;
-  touch-action: manipulation;
-}
-
-/* Responsive on smaller screens */
 @media (max-width: 768px) {
   .seat-container {
     transform: scale(0.9);
     transform-origin: top center;
   }
 }
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .seat-container {
-    transform: scale(0.8);
-    transform-origin: top center;
+    transform: scale(0.9);
+    transform-origin: center top;
+    flex-direction: column;
   }
-
+  .container h1 {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 480px) {
   .seat {
     width: 30px;
     height: 30px;
   }
-
   .container h1 {
     font-size: 1.6rem;
   }
 }
 
-.seat {
-  width: 35px;
-  height: 35px;
-  border-radius: 6px;
-  background-color: #c1476f; /* Available */
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  text-align: center;
-  touch-action: manipulation;
-}
-
-.seat.selected {
-  background-color: #e9bbd7;
-  color: #3b1e3d;
-}
-
-.seat.occupied {
-  background-color: #3b1e3d;
-  cursor: not-allowed;
-}
-
-.seat-placeholder {
-  visibility: hidden;
-}
-
-.seat-scroll-wrapper,
-.seat-container,
-.seat,
-.seat-subblock {
-  touch-action: manipulation;
-}
-
+/* ✅ Modal */
 .modal {
   display: none;
   position: fixed;
@@ -245,7 +181,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   background: #2a1a2e;
   padding: 2rem;
@@ -254,21 +189,15 @@ body {
   color: #fff;
   box-shadow: 0 0 10px rgba(255, 105, 135, 0.3);
 }
-
 .modal-buttons {
   margin-top: 1rem;
   display: flex;
   justify-content: space-around;
 }
 
+/* 🖱️ Buttons */
+button,
 #show-confirm {
-  margin: 2rem auto;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-button {
   background: #963c5f;
   color: white;
   border: none;
@@ -278,19 +207,20 @@ button {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 button:hover {
   background: #b54b6f;
 }
-
-button#cancel-btn {
+#show-confirm {
+  margin: 2rem auto;
+}
+#cancel-btn {
   background: #f44336;
 }
-
-button#cancel-btn:hover {
+#cancel-btn:hover {
   background: #ff5c5c;
 }
 
+/* 🍞 Toast */
 #toast {
   visibility: hidden;
   min-width: 250px;
@@ -308,55 +238,7 @@ button#cancel-btn:hover {
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 #toast.show {
   visibility: visible;
   opacity: 1;
-}
-#toast {
-  visibility: hidden;
-  min-width: 250px;
-  background-color: #f44336;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  padding: 12px 20px;
-  position: fixed;
-  z-index: 999;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-#toast.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-.legend .seat.selected {
-  background-color: e9bbd7 !important;
-}
-
-@media (max-width: 480px) {
-  .seat-container {
-    transform: scale(0.9);
-  }
-
-  /* .seat {
-    width: 28px;
-    height: 28px;
-  } */
-}
-
-@media (max-width: 600px) {
-  .seat-container {
-    transform: scale(0.9);
-    transform-origin: center top;
-  }
-  .container h1 {
-    font-size: 1.2rem;
-  }
 }
