@@ -211,3 +211,7 @@ zoomwrapper.addEventListener('touchend', function (e) {
     startDistance = null;
   }
 });
+
+document.querySelector(".container h1").addEventListener("click", () => {
+  alert("Title tapped!");
+});

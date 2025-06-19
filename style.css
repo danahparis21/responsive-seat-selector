@@ -135,7 +135,7 @@ body {
 .seat-container,
 .seat,
 .seat-subblock {
-  touch-action: manipulation;
+  touch-action: auto;
 }
 /* 📱 Responsive Design */
 @media (max-width: 1200px) {
@@ -146,7 +146,7 @@ body {
 }
 @media (max-width: 900px) and (min-height: 1000px) {
   .screen {
-    height: 20px;
+    height: 15px;
   }
 }
 @media (max-width: 768px) {
@@ -254,5 +254,11 @@ button:hover {
 .seat-container,
 .seat,
 .seat-subblock {
-  touch-action: manipulation;
+  touch-action: auto;
 }
+
+.seat-scroll-wrapper {
+  overflow: auto;
+  touch-action: auto;
+}
+
