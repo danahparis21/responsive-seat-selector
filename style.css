@@ -32,6 +32,7 @@ body {
   animation: sparkle 10s linear infinite;
   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
   transition: font-size 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  touch-action: manipulation;
 }
 
 
@@ -130,6 +131,12 @@ body {
   padding-bottom: 1rem;
 }
 
+.seat-scroll-wrapper,
+.seat-container,
+.seat,
+.seat-subblock {
+  touch-action: manipulation;
+}
 /* 📱 Responsive Design */
 @media (max-width: 1200px) {
   .seat {
@@ -241,4 +248,11 @@ button:hover {
 #toast.show {
   visibility: visible;
   opacity: 1;
+}
+
+.seat-scroll-wrapper,
+.seat-container,
+.seat,
+.seat-subblock {
+  touch-action: manipulation;
 }
