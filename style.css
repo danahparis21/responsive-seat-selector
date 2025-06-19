@@ -15,8 +15,12 @@ body {
 
 /* ✨ Sparkle Animation */
 @keyframes sparkle {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* 🖋️ Title */
@@ -35,12 +39,11 @@ body {
   touch-action: manipulation;
 }
 
-
 .container h1:hover,
 .container h1:active {
   transform: scale(1.05);
   text-shadow: 0 0 12px rgba(255, 182, 193, 0.8),
-               0 0 18px rgba(255, 105, 180, 0.6);
+    0 0 18px rgba(255, 105, 180, 0.6);
 }
 
 .container {
@@ -162,7 +165,7 @@ body {
     flex-direction: column;
   }
   .container h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 @media (max-width: 480px) {
@@ -171,7 +174,7 @@ body {
     height: 30px;
   }
   .container h1 {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -261,4 +264,3 @@ button:hover {
   overflow: auto;
   touch-action: auto;
 }
-
